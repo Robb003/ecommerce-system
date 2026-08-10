@@ -1,5 +1,5 @@
 const Product = require("../models/Product");
-
+//create a product
 exports.createProduct = async(req, res)=>{
     try{
         if(req.user.role !=="Admin"){
@@ -24,7 +24,7 @@ exports.createProduct = async(req, res)=>{
         res.status(500).json({message: error.message})
     }
 };
-
+//get all the products
 exports.getAllProducts = async(req, res)=>{
     try {
         const products = await Product.find();
@@ -32,7 +32,7 @@ exports.getAllProducts = async(req, res)=>{
     } catch (error){
         res.status(500).json({message: error.message})
     }
-};
+};//get  a single product
 exports.getProductById = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id)
@@ -49,7 +49,7 @@ exports.getProductById = async (req, res) => {
         });
     }
 };
-
+//delete a single product
 exports.deleteProduct = async(req, res)=>{
     try {
         if(req.user.role !=="Admin"){
