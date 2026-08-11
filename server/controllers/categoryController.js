@@ -6,9 +6,10 @@ exports.createCategory = async(req, res)=>{
             return res.status(403).json({message: "Only Admin can create a category"});
         }
         const {categoryName, categoryDescription} = req.body;
-        if(!categoryName || categoryDescription){
+        if(!categoryName || !categoryDescription){
             return res.status(400).json({message: "All fields are required"});
         }
+        const categoryExist = await Category.find({categoryName});
         if(categoryExist){
             return res.status(400).json({message: "Category already exists"});
         }

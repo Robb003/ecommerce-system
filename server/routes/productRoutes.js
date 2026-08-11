@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.post("/", protect, authorize(["Admin"]), createProduct);
 router.get("/all",getAllProducts);
-router.get("/product/productId", getProductById);
-router.delete("/delete/productId", protect, authorize(["Admin"]), deleteProduct);
+router.get("/search", searchProduct);
+router.get("/product/:id", getProductById);
+router.delete("/delete/:id", protect, authorize(["Admin"]), deleteProduct);
 
 module.exports = router;

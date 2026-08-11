@@ -70,7 +70,7 @@ exports.getAllOrders = async(req, res)=>{
         };
         const orders = await Order.find()
         .populate("productId customerId");
-        if(!orders){
+        if(orders.length ===0){
             return res.status(404).json({message: "Order not found"});
         }
         res.status(200).json(orders);
@@ -83,9 +83,9 @@ exports.getMyOrders = async(req, res) =>{
         if(req.user.role !=="Customer"){
             return res.status(403).json({message: "Only a customer can get theit order"});
         }
-        const myOrders = await Orders.find()
-        .populate(productId totalPrice orderStatus);
-        if(!myOrders){
+        const myOrders = await Order.find({customerId: req.user._id})
+        .populate("productId");
+        if(myOrders.length ===0){
             return res.status(404).json({message: "No orders found"});
         }
         res.status(200).json(myOrders);
@@ -103,7 +103,9 @@ exports.cancelOrder = async(req, res)=>{
         if(!order){
             return res.status(404).json({message: "No order found"});
         }
-        await Order.findByIdAndCancel(req.params.id)
+        await Order.findByIdAndDelete(req.params.id);
+        order.orderStatus = "Cancelled";
+        await order.save();
         res.status(200).json({message: "Order succefully cancelled"});
     } catch(error){
         res.status(500).json({message: error.message});

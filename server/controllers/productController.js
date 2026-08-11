@@ -70,6 +70,10 @@ exports.searchProduct = async (req, res) => {
     try {
         const { name } = req.query;
 
+        if(!name){
+            return res.status(400).json({message: "Search name is required"});
+        }
+
         const products = await Product.find({
             productName: {
                 $regex: name,

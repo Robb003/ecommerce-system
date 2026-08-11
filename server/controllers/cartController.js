@@ -53,7 +53,7 @@ exports.removeProduct =async(req, res)=>{
             return res.status(403).json({message: "Only customer can remove product from cart"});
         };
 
-        const {productId} = req.params;
+        const {id} = req.params;
         const cart = await Cart.findOne({user: req.user._id});
         if(!cart){
             return res.status(404).json({message: "Cart not found"});
@@ -86,7 +86,7 @@ exports.updateCart = async(req, res) =>{
         if(req.user.role !=="Customer"){
             return res.status(403).json({message: "Only customer can update their cart"});
         };
-        const {productId} = req.params;
+        const {id} = req.params;
         const {quantity} = req.body;
         if(!quantity || quantity <1){
             return res.status(400).json({message: "Quantity must be atleast 1"});
