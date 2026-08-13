@@ -5,7 +5,7 @@ const User = require('../models/User');
 // Signup endpoint logic
 exports.Signup = async (req, res) => {
     try {
-        const { name, email, password, phoneNumber, address } = req.body;
+        const { name, email, password, phoneNumber, address, role } = req.body;
         
         const exist = await User.findOne({ email });
         if (exist) {
@@ -18,10 +18,9 @@ exports.Signup = async (req, res) => {
         const user = await User.create({ 
             name,
             email,
-            password,
             phoneNumber,
             address, 
-            role: "Customer", 
+            role: role || "Customer", 
             password: hashed 
         });
 

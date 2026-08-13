@@ -1,7 +1,7 @@
 const express = require("express");
-const {createOrder, getAllOrders, getMyOrders, cancelOrder} = require("../controllers/orderControllers")
+const {createOrder, getAllOrders, getMyOrders, cancelOrder} = require("../controllers/orderController")
 const {protect, authorize} = require("../middleware/authMiddleware");
-const route = express.Router();
+const router = express.Router();
 router.post("/", protect, authorize(["Customer"]), createOrder);
 router.get("/all", protect, authorize(["Admin"]), getAllOrders);
 router.get("/me", protect, authorize(["Customer"]), getMyOrders);
