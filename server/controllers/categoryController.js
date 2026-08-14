@@ -9,7 +9,7 @@ exports.createCategory = async(req, res)=>{
         if(!categoryName || !categoryDescription){
             return res.status(400).json({message: "All fields are required"});
         }
-        const categoryExist = await Category.find({categoryName});
+        const categoryExist = await Category.findOne({categoryName});
         if(categoryExist){
             return res.status(400).json({message: "Category already exists"});
         }

@@ -21,7 +21,8 @@ exports.createCart = async(req, res)=>{
             cart = await Cart.create({
                 user: req.user._id,
                 items:[{product: productId, quantity: quantity || 1},],
-            }).populate("items.product");
+            });
+            await cart.populate("items.product");
 
             return res.status(201).json(cart)
         }
@@ -59,7 +60,7 @@ exports.removeProduct =async(req, res)=>{
             return res.status(404).json({message: "Cart not found"});
         };
         const itemIndex = cart.items.findIndex(
-          item => item.product.toString() === productId
+          item => item.product.toString() === id
        );
 
         if (itemIndex === -1) {
@@ -97,7 +98,7 @@ exports.updateCart = async(req, res) =>{
         };
 
         const itemIndex = cart.items.findIndex(
-            item=>item.product.toString() === productId
+            item=>item.product.toString() === id
         );
         if(itemIndex ===-1){
             return res.status(404).json({message: "Item not found in cart"});

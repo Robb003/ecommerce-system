@@ -5,6 +5,6 @@ const router = express.Router();
 router.post("/", protect, authorize(["Customer"]), createOrder);
 router.get("/all", protect, authorize(["Admin"]), getAllOrders);
 router.get("/me", protect, authorize(["Customer"]), getMyOrders);
-router.put("/cancel/:Id", protect, authorize(["Customer"]), cancelOrder);
+router.put("/cancel/:id", protect, authorize(["Customer"]), cancelOrder);
 
 module.exports = router;

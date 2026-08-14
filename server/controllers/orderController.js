@@ -25,14 +25,14 @@ exports.createOrder = async (req, res) => {
         let totalPrice = 0;
 
         const orderedItems = cart.items.map((item) => {
-            const itemTotal = item.product.price * item.quantity;
+            const itemTotal = item.product.productPrice * item.quantity;
 
             totalPrice += itemTotal;
 
             return {
                 product: item.product._id,
                 quantity: item.quantity,
-                price: item.product.price,
+                price: item.product.productPrice,
             };
         });
 
@@ -104,10 +104,23 @@ exports.cancelOrder = async(req, res)=>{
         if(!order){
             return res.status(404).json({message: "No order found"});
         }
-        await Order.findByIdAndDelete(req.params.id);
+        //check the order belongs to the logged in user
+        if(order.user.toString() !== req.user._id.toString()){
+            return res.status(403).json({message: "You can only cancel your order"});
+        }
+        //prevent cancelling an already delivered order
+
+        if(order.orderStatus ==="Delivered"){
+            return res.status(400).json({message: "Delivered orders cannot be cancelled"});
+        }
+
+        //prevent cancelling an order twice
+        if(order.orderStatus ==="Cancelled"){
+            return res.status(400).json({message: "Order is already cancelled"});
+        }
         order.orderStatus = "Cancelled";
         await order.save();
-        res.status(200).json({message: "Order succefully cancelled"});
+        return res.status(200).json({message: "Order succefully cancelled"});
     } catch(error){
         res.status(500).json({message: error.message});
     }
