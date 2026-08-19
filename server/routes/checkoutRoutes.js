@@ -1,8 +1,8 @@
 const express = require("express");
-const router = express.Router();
 
 const { checkout } = require("../controllers/checkoutController");
-const {protect, authorize} = require("../middleware/authmiddleware");
+const {protect, authorize} = require("../middleware/authMiddleware");
+const router = express.Router();
 
 router.post("/",protect, authorize(["Customer"]), checkout);
 
