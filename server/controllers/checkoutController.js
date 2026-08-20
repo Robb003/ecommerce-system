@@ -58,9 +58,12 @@ exports.checkout = async (req, res) => {
             };
         });
 
+        const orderNumber = `ORD-${Date.now()}`;
+
         // Create the order
         const order = await Order.create({
             user: req.user._id,
+            orderNumber,
             items: orderedItems,
             totalPrice,
             orderStatus: "Pending",

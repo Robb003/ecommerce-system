@@ -14,6 +14,11 @@ const orderSchema = new mongoose.Schema({
     merchantRequestId: {
     type: String
 },
+orderNumber: {
+        type: String,
+        required: true,
+        unique: true
+},
 
 checkoutRequestId: {
     type: String
