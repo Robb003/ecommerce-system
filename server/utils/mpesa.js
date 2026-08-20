@@ -33,7 +33,7 @@ const getMpesaToken = async () => {
     return response.data.access_token;
 };
 
-const triggerStkPush = async (phoneNumber, totalPrice, orderId) => {
+const triggerStkPush = async (phoneNumber, totalPrice, orderId, orderNumber) => {
     // Fetches the token
     const token = await getMpesaToken();
 
@@ -64,8 +64,8 @@ const triggerStkPush = async (phoneNumber, totalPrice, orderId) => {
             PartyB: shortcode,
             PhoneNumber: fullPhoneNumber,
             CallBackURL: `${process.env.MPESA_CALLBACK_URL}/api/mpesa/callback/${orderId}`,
-            AccountReference: `BK-${orderId.toString().slice(-6).toUpperCase()}`,
-            TransactionDesc: `Order Payment ${orderId.toString().slice(-6)}`
+            AccountReference: orderNumber,
+            TransactionDesc: `Payment for ${orderNumber}`
         },
         {
             headers: { Authorization: `Bearer ${token}` }

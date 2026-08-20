@@ -75,7 +75,8 @@ exports.checkout = async (req, res) => {
         const mpesaResponse = await triggerStkPush(
             req.user.phoneNumber,
             totalPrice,
-            order._id
+            order._id,
+            order.orderNumber
         );
         //save safaricom request IDs
         order.merchantRequestId = mpesaResponse.MerchantRequestID;
