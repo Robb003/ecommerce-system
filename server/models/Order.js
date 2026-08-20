@@ -11,6 +11,16 @@ const orderSchema = new mongoose.Schema({
     totalPrice: {type: Number, required: true, default: 0},
     orderStatus: {type: String, required: true, enum:["Pending", "Processing", "Shipped", "Delivered", "Cancelled"], default: "Pending"},
     paymentStatus: {type: String, enum:["Unpaid", "Paid"], default: "Unpaid"},
-    transactionId: {type: String}
+    merchantRequestId: {
+    type: String
+},
+
+checkoutRequestId: {
+    type: String
+},
+
+transactionId: {
+    type: String
+}
 },{timestamps: true});
 module.exports =mongoose.model("Order", orderSchema);

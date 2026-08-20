@@ -1,6 +1,6 @@
 const Cart = require("../models/Cart");
 const Order = require("../models/Order");
-
+const { triggerStkPush } = require("../utils/mpesa");
 exports.checkout = async (req, res) => {
     try {
         // Check if the user is a customer
@@ -68,6 +68,18 @@ exports.checkout = async (req, res) => {
             paymentMethod: "M-pesa",
             shippingAddress,
         });
+        //initiate mpesa stk push
+        const mpesaResponse = await triggerStkPush(
+            req.user.phoneNumber,
+            totalPrice,
+            order._id
+        );
+        //save safaricom request IDs
+        order.merchantRequestId = mpesaResponse.MerchantRequestID;
+        order.checkoutRequestId = mpesaResponse.CheckoutRequestID;
+
+        await order.save();
+        
 
 
         return res.status(201).json({
