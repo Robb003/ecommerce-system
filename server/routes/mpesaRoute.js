@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+const Order = require("../models/Order");
+const Product = require("../models/Product");
+const Cart = require("../models/Cart");
+
 router.post("/callback/:orderId", async (req, res) => {
     try {
         const {orderId} =req.params;
@@ -19,10 +23,20 @@ router.post("/callback/:orderId", async (req, res) => {
         // 3. Fetch the order model from MongoDB an
         const Order = require("../models/Order"); 
         const order = await Order.findById(orderId);
-        
+        //check if order exist
+
         if (!order) {
             console.log(`Order ID ${orderId} not found in database.`);
             return res.status(404).send("Order not found");
+        }
+
+        //prevent double callback processing
+        if(order.paymentStatus ==="Paid"){
+            console.log(`[M-pesa] Order ${orderId} already processed`);
+            return res.status(200).json({
+                ResultCode: 0,
+                ResultDesc: "Callback already processed"
+            });
         }
 
 
@@ -50,6 +64,23 @@ router.post("/callback/:orderId", async (req, res) => {
                 order.transactionId = receiptObj.Value; // e.g., QKL92NJ71X
             }
         }
+
+        //reduce the stock after a successfully payment
+
+        for(const item of order.items){
+            await Product.findByIdAndUpdate(
+                item.product,
+                {
+                    $inc: {
+                        stock: -item.quantity
+                    }
+                }
+            );
+        }
+        //clear a cart after a successfully payment
+        await Cart.findByIdAndDelete({
+            user: order.user
+        });
         
         await order.save();
 
