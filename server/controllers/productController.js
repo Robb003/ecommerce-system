@@ -16,7 +16,13 @@ exports.createProduct = async(req, res)=>{
             productCategory,
             productPrice,
             productBrand,
-            stock
+            stock,
+            image: req.file
+            ? {
+            path: req.file.path,
+            filename: req.file.filename
+             }
+        : undefined
         });
         res.status(201).json(product);
 

@@ -3,7 +3,7 @@ const {protect, authorize} = require("../middleware/authMiddleware");
 const {createProduct, getAllProducts, getProductById, deleteProduct, searchProduct} = require("../controllers/productController");
 const router = express.Router();
 
-router.post("/", protect, authorize(["Admin"]), createProduct);
+router.post("/", protect, authorize(["Admin"]), upload.single("image"),createProduct);
 router.get("/all",getAllProducts);
 router.get("/search", searchProduct);
 router.get("/product/:id", getProductById);

@@ -78,7 +78,7 @@ router.post("/callback/:orderId", async (req, res) => {
             );
         }
         //clear a cart after a successfully payment
-        await Cart.findByIdAndDelete({
+        await Cart.findOneAndDelete({
             user: order.user
         });
         
