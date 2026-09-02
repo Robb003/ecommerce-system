@@ -2,13 +2,15 @@ import React from 'react'
 import { useState } from 'react';
 import {Link, NavLink } from 'react-router-dom'
 import { Search, ShoppingCart, Menu, X} from 'lucide-react'
+import {assets} from "../assets/assets"
 
 
 function Navbar() {
     const [visble, setVisble] = useState(false);
   return (
     <div className=' flex items-center justify-between py-5 font-medium'>
-        <ul className='hidden sm:flex gap-5 text-sm text-gray-700 hidden'>
+        <Link to='/'><img src={assets.Logo} className='w-36' alt="" /></Link>
+        <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
             <NavLink to='/' className='flex flex-col items-center gap-1'>
                 <p>HOME</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
@@ -50,7 +52,7 @@ function Navbar() {
         {/*sidebar menu for small screens*/}
         <div className={`absolute top-0 bottom-0 overflow-hidden bg-white transition-all ${visble ?'w-full' : 'w-0'}`}>
             <div className='flex flex-col text-gray-600'>
-                <div onClick={()=>setVisble(false)} className=' flex items-center gap-4 p-3 cusor-pointer'>
+                <div onClick={()=>setVisble(false)} className=' flex items-center gap-4 p-3 cursor-pointer'>
                     <X className='h-4' />
                     <p>Back</p>
                 </div>
