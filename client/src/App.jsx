@@ -9,6 +9,7 @@ import Myorders from './pages/Myorders'
 import ProductDetails from './pages/ProductDetails'
 import OrderDetails from './pages/OrderDetails'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Route path='/products/:productId' element={<ProductDetails/>} />
       <Route path='/orders/:orderId' element={<OrderDetails/>} />
     </Routes> 
+    <Footer />
     </>
   )
 }

@@ -15,6 +15,9 @@ import product13 from './product13.jpg'
 import product14 from './product14.jpg'
 import product15 from './product15.jpg'
 import Logo from './Logo.png'
+import customer from './customer.png'
+import days from './days.png'
+import easy from './easy.png'
 
 export const products = [
     
@@ -134,5 +137,8 @@ export const products = [
 ]
 
 export const assets={
-    Logo
+    Logo,
+    easy,
+    days,
+    customer
 }

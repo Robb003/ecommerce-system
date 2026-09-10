@@ -1,5 +1,6 @@
 import React from 'react'
 import heroImage from "../assets/image_c41aba2b (1).png"
+import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
@@ -20,7 +21,9 @@ function Hero() {
         </div>
         {/*hero right side */}
         <img className='w-full sm:w-1/2' src={heroImage} alt='Featured products' />
+        
     </div>
+
   )
 }
 
