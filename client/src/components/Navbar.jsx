@@ -6,7 +6,7 @@ import {assets} from "../assets/assets"
 
 
 function Navbar() {
-    const [visble, setVisble] = useState(false);
+    const [visible, setVisible] = useState(false);
   return (
     <div className=' flex items-center justify-between py-5 font-medium'>
         <Link to='/'><img src={assets.Logo} className='w-36' alt="" /></Link>
@@ -21,8 +21,8 @@ function Navbar() {
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
 
-            <NavLink to='/categories' className='flex flex-col items-center gap-1'>
-                <p>CATEGORIES</p>
+            <NavLink to='/collection' className='flex flex-col items-center gap-1'>
+                <p>COLLECTION</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/products' className='flex flex-col items-center gap-1'>
@@ -47,20 +47,20 @@ function Navbar() {
          >
          <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-black transition" />
          </Link>
-         <Menu onClick={()=>setVisble(true)} className='w-6 h-6 cursor-pointer sm:hidden' />
+         <Menu onClick={()=>setVisible(true)} className='w-6 h-6 cursor-pointer sm:hidden' />
         </div>
         {/*sidebar menu for small screens*/}
-        <div className={`absolute top-0 bottom-0 overflow-hidden bg-white transition-all ${visble ?'w-full' : 'w-0'}`}>
+        <div className={`absolute top-0 bottom-0 overflow-hidden bg-white transition-all ${visible ?'w-full' : 'w-0'}`}>
             <div className='flex flex-col text-gray-600'>
-                <div onClick={()=>setVisble(false)} className=' flex items-center gap-4 p-3 cursor-pointer'>
+                <div onClick={()=>setVisible(false)} className=' flex items-center gap-4 p-3 cursor-pointer'>
                     <X className='h-4' />
                     <p>Back</p>
                 </div>
-                <NavLink onClick={()=>setVisble(false)} to='/'>Home</NavLink>
-                <NavLink onClick={()=>setVisble(false)} to='/cart'>Cart</NavLink>
-                <NavLink onClick={()=>setVisble(false)} to='/categories'>Categories</NavLink>
-                <NavLink onClick={()=>setVisble(false)} to='/products'>Products</NavLink>
-                <NavLink onClick={()=>setVisble(false)} to='/myorders'>MY ORDERS</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/'>Home</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/cart'>Cart</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/collection'>Collection</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/products'>Products</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/myorders'>MY ORDERS</NavLink>
             </div>
 
         </div>
