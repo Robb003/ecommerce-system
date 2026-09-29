@@ -38,6 +38,10 @@ import days from './days.png'
 import easy from './easy.png'
 import dropdown from './dropdown.jpg'
 import Dropdown_icon from './Dropdown_icon.jpg'
+import carticon from './carticon.jpg'
+import search_icone  from './search_icone.jpg'
+import Xicon from './Xicon.jpg'
+import menuIcon from './menuIcon.jpg'
 
 export const products = [
   {
@@ -343,6 +347,10 @@ export const assets={
     days,
     customer,
     dropdown,
-    Dropdown_icon
+    Dropdown_icon,
+    search_icone,
+    carticon,
+    Xicon,
+    menuIcon
 
 }
