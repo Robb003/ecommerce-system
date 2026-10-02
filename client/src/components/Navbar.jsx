@@ -8,7 +8,7 @@ import { ShopContext } from '../context/ShopContext';
 
 function Navbar() {
     const [visible, setVisible] = useState(false);
-    const {setShowSearch} = useContext(ShopContext);
+    const {setShowSearch, getCartCount } = useContext(ShopContext);
   return (
     <div className=' flex items-center justify-between py-5 font-medium'>
         <Link to='/'><img src={assets.Logo} className='w-36' alt="" /></Link>
@@ -18,17 +18,18 @@ function Navbar() {
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
 
-            <NavLink to='/cart' className='flex flex-col items-center gap-1'>
-                <p>CART</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-
             <NavLink to='/collection' className='flex flex-col items-center gap-1'>
                 <p>COLLECTION</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
-            <NavLink to='/myorders' className='flex flex-col items-center gap-1'>
-                <p>MY ORDERS</p>
+
+           <NavLink to='/about' className='flex flex-col items-center gap-1'>
+                <p>ABOUT</p>
+                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+
+            <NavLink to='/contact' className='flex flex-col items-center gap-1'>
+                <p>CONTACT</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
 
@@ -44,6 +45,7 @@ function Navbar() {
          className="relative"
          >
          <img src={assets.carticon} className='w-15 min-w-15' alt= " " />
+         <p className="absolute bottom-1 right-1 bg-black text-white font-bold text-[8px] w-4 h-4 rounded-full flex items-center justify-center">{getCartCount()}</p>
          </Link>
          <img onClick={()=>setVisible(true)} src={assets.menuIcon} className='w-10 h-10 cursor-pointer sm:hidden' />
         </div>
@@ -55,9 +57,9 @@ function Navbar() {
                     <p>Back</p>
                 </div>
                 <NavLink onClick={()=>setVisible(false)} to='/'>Home</NavLink>
-                <NavLink onClick={()=>setVisible(false)} to='/cart'>Cart</NavLink>
                 <NavLink onClick={()=>setVisible(false)} to='/collection'>Collection</NavLink>
-                <NavLink onClick={()=>setVisible(false)} to='/myorders'>MY ORDERS</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/about'>ABOUT</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='/contact'>CONTACT</NavLink>
             </div>
 
         </div>

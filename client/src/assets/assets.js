@@ -53,11 +53,11 @@ import Xicon from './Xicon.jpg'
 import menuIcon from './menuIcon.jpg'
 import starIcon from './starIcon.jpg'
 import dullIcon from './dullIcon.jpg'
+import binIcon from './binIcon.jpg'
 
 
 export const products = [
   
-
   {
     id: 1,
     name: "Mfsignature Chocolate Ruched Satin Midi Skirt",
@@ -66,7 +66,8 @@ export const products = [
     image: [product1, product1_2, product1_3],
     category: "Women",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -77,7 +78,8 @@ export const products = [
     image: [PRODUCT2],
     category: "Women",
     bestSeller: false,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -88,7 +90,8 @@ export const products = [
     image: [PRODUCT3],
     category: "Women",
     bestSeller: false,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -99,7 +102,8 @@ export const products = [
     image: [PRODUCT4],
     category: "Women",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -110,7 +114,8 @@ export const products = [
     image: [PRODUCT5, PRODUCT5_2, PRODUCT5_3, PRODUCT5_4],
     category: "Women",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -121,7 +126,8 @@ export const products = [
     image: [PRODUCT6],
     category: "Women",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -132,7 +138,8 @@ export const products = [
     image: [PRODUCT7],
     category: "Women",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -143,7 +150,8 @@ export const products = [
     image: [PRODUCT8, PRODUCT8_2, PRODUCT8_3],
     category: "Women",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -154,7 +162,8 @@ export const products = [
     image: [PRODUCT9],
     category: "Women",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -165,7 +174,8 @@ export const products = [
     image: [PRODUCT10, PRODUCT10_2, PRODUCT10_3],
     category: "Women",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -176,7 +186,8 @@ export const products = [
     image: [PRODUCT11],
     category: "Women",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -187,7 +198,8 @@ export const products = [
     image: [PRODUCT12],
     category: "Women",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -197,7 +209,8 @@ export const products = [
     description: "A vibrant Ankara wax-print midi dress featuring elegant ruffle details. Perfect for celebrations, cultural events, parties, and special occasions.",
     image: [product13],
     category: "Traditional",
-    bestSeller: true
+    bestSeller: true,
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -207,7 +220,8 @@ export const products = [
     description: "An elegant georgette jumpsuit with a halter neckline, pleated details, and flowing wide-leg silhouette. Designed for sophisticated occasions.",
     image: [product14],
     category: "Formal Wear",
-    bestSeller: false
+    bestSeller: false,
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -217,7 +231,8 @@ export const products = [
     description: "A versatile two-piece outfit combining a classic denim midi skirt with a stylish tee. The front slit adds a modern touch to this casual set.",
     image: [product15],
     category: "Casual Wear",
-    bestSeller: true
+    bestSeller: true,
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -228,7 +243,8 @@ export const products = [
     image: [product16],
     category: "Kids",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -239,7 +255,8 @@ export const products = [
     image: [product17],
     category: "Kids",
     bestSeller: false,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -250,7 +267,8 @@ export const products = [
     image: [product18],
     category: "Kids",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -261,7 +279,8 @@ export const products = [
     image: [product19],
     category: "Kids",
     bestSeller: false,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -272,7 +291,8 @@ export const products = [
     image: [product20],
     category: "Kids",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -283,7 +303,8 @@ export const products = [
     image: [product21],
     category: "Kids",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -294,7 +315,8 @@ export const products = [
     image: [product22],
     category: "Kids",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -305,7 +327,8 @@ export const products = [
     image: [product23],
     category: "Kids",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -316,7 +339,8 @@ export const products = [
     image: [product24],
     category: "Kids",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -327,7 +351,8 @@ export const products = [
     image: [product25],
     category: "Men",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -338,7 +363,8 @@ export const products = [
     image: [product26],
     category: "Men",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -349,7 +375,8 @@ export const products = [
     image: [product27],
     category: "Men",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -360,7 +387,8 @@ export const products = [
     image: [product28],
     category: "Men",
     bestSeller: false,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -371,7 +399,8 @@ export const products = [
     image: [product29],
     category: "Men",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -382,7 +411,8 @@ export const products = [
     image: [product30],
     category: "Men",
     bestSeller: true,
-    subCategory: "Topwear"
+    subCategory: "Topwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -393,7 +423,8 @@ export const products = [
     image: [product31],
     category: "Men",
     bestSeller: true,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -404,7 +435,8 @@ export const products = [
     image: [product32],
     category: "Men",
     bestSeller: false,
-    subCategory: "Bottomwear"
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
   },
 
   {
@@ -415,8 +447,9 @@ export const products = [
     image: [product33],
     category: "Men",
     bestSeller: false,
-    subCategory: "Bottomwear"
-  },
+    subCategory: "Bottomwear",
+    sizes: ["L", "SM", "XL"]
+  }
 ]
 
 export const assets={
@@ -431,6 +464,7 @@ export const assets={
     Xicon,
     menuIcon,
     starIcon,
-    dullIcon
+    dullIcon,
+    binIcon
 
 }
